@@ -5,8 +5,9 @@ import { addPrebuildingToConfig } from "./lib/prebuild.js";
  * @typedef CacheConfig
  * @prop {string} name - Cache key for the current build. This should be an
  *   identifier that is unique for the Rollup configuration, such as its file path.
- * @prop {string} [cacheDir] - Location to write cache data to. Defaults to
- *   "node_modules/.cache/rollup-cache".
+ * @prop {string} [outDir] - Location that Rollup outputs bundles to - used for more accurate
+ * id comparisons. Defaults to
+ *   "dist".
  * @prop {string[]} [dependencies] - A list of file paths to be checked before
  *   using existing cache data. If any of these files have changed since the
  *   previous build, the existing cache data will be discarded.
@@ -33,7 +34,7 @@ import { addPrebuildingToConfig } from "./lib/prebuild.js";
 export function cacheBuild(cacheConfig, buildConfig) {
   const {
     name,
-    cacheDir = "node_modules/.cache/rollup-cache",
+    outDir = "dist",
     dependencies = [],
     enabled = process.env.NODE_ENV !== "production",
     prebuild = [],
