@@ -19,7 +19,9 @@ import { addPrebuildingToConfig } from "./lib/prebuild.js";
  *   listed here will be bundled into ES modules and written to `prebuildDir`.
  *   References to these dependencies in other code will be replaced with
  *   imports using Rollup's `externals` config setting.
- */
+ * @prop {number} redisPort - Port for Redis connection, defaults to 6379
+ * @prop {number} redisHost - Host for Redis connection, defaults to localhost
+*/
 
 /**
  * Wrap a Rollup configuration to enable caching and (optionally) prebuilding.
@@ -36,6 +38,8 @@ export function cacheBuild(cacheConfig, buildConfig) {
     enabled = process.env.NODE_ENV !== "production",
     prebuild = [],
     prebuildDir = "./npm",
+    redisPort = 6379,
+    redisHost = "localhost"
   } = cacheConfig;
 
   if (!enabled) {
@@ -47,6 +51,8 @@ export function cacheBuild(cacheConfig, buildConfig) {
   let wrappedConfig = addPluginCachingToConfig(buildConfig, {
     cacheRoot,
     dependencies,
+    redisPort,
+    redisHost,
   });
 
   if (prebuild.length > 0) {
