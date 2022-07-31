@@ -1,12 +1,12 @@
 {
-  "name": "rollup-cache",
+  "name": "rollup-redis-cache",
   "version": "1.2.0",
-  "description": "Caching tools for Rollup",
+  "description": "Caching tools for Rollup backed by Redis",
   "type": "module",
   "main": "index.js",
   "types": "types/index.d.ts",
-  "repository": "https://github.com/robertknight/rollup-cache",
-  "author": "Robert Knight <robertknight@gmail.com>",
+  "repository": "https://github.com/umairnadeem/rollup-redis-cache",
+  "author": "Umair Nadeem <nadeem.umair123@gmail.com>",
   "license": "BSD-2-Clause",
   "files": [
     "index.js",
@@ -35,6 +35,9 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-replace": "^3.0.0",
+    "async-redis": "^2.0.0",
+    "ioredis": "^5.2.2",
+    "redis": "^4.2.0",
     "rollup": "^2.59.0"
   }
 }
