@@ -20,7 +20,7 @@ import { addPrebuildingToConfig } from "./lib/prebuild.js";
  *   References to these dependencies in other code will be replaced with
  *   imports using Rollup's `externals` config setting.
  * @prop {number} redisPort - Port for Redis connection, defaults to 6379
- * @prop {number} redisHost - Host for Redis connection, defaults to localhost
+ * @prop {string} redisHost - Host for Redis connection, defaults to localhost
 */
 
 /**
