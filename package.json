@@ -1,6 +1,6 @@
 {
   "name": "rollup-redis-cache",
-  "version": "2.3.5",
+  "version": "1.2.4",
   "description": "Caching tools for Rollup backed by Redis",
   "type": "module",
   "main": "index.js",
